@@ -1,20 +1,33 @@
-const Hello = (props) => {
+import Header from "./Header.jsx";
+import Content from "./Content.jsx";
+import Total from "./Total.jsx";
+
+
+const App = () => {
+    const course = 'Half Stack application development'
+
+    const content = [
+        {
+            part: 'Fundamentals of React',
+            exercises: 10
+        },
+        {
+            part: 'Using props to pass data',
+            exercises: 7
+        },
+        {
+            part: 'State of a component',
+            exercises: 14
+        }
+    ]
+
     return (
         <div>
-            <p>Hello {props.name}! You are {props.age} years old.</p>
+            <Header course={course} />
+            <Content content={content}/>
+            <Total total={content[0].exercises + content[1].exercises + content[2].exercises} />
         </div>
     )
-}
-function App() {
-    const name = 'Peter'
-    const age = 10
-  return (
-    <>
-        <h1>Greetings</h1>
-      <Hello name='Artur' age={26 + 10}/>
-      <Hello name={name} age={age}/>
-    </>
-  )
 }
 
 export default App
